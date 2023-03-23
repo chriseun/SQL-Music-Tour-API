@@ -12,9 +12,13 @@ app.use(express.urlencoded({ extended: false }))
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
-        message: 'Welcome to the Tour API Demo'
+        message: 'Welcome to the Tour API'
     })
 })
+
+//CONTROLLERS
+const bandController = require('./controllers/band_controller')
+app.use('/band', bandController)
 
 // LISTEN
 app.listen(process.env.PORT, () => {
